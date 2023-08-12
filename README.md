@@ -9,11 +9,12 @@ cd your-project
 
 # Install dependencies
 npm install
-Usage
 
 bash
 Copy code
-# Run development server
+# Run the development server
 ng serve
-or
+
+or 
+
 ng serve --proxy-config proxy.conf.json
