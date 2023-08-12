@@ -1,0 +1,12 @@
+{
+    "/api": {
+      "target": "https://getinvoices.azurewebsites.net",
+      "secure": true,
+      "changeOrigin": true,
+      "logLevel": "debug",
+      "pathRewrite": {
+        "^/api": "/api"
+      }
+    }
+  }
+  

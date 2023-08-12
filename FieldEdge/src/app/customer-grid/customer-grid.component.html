@@ -1,0 +1,83 @@
+<mat-label class="heading">Customer Management</mat-label>
+<br><br>
+<div class="example-container mat-elevation-z8">
+    <mat-spinner class='loader' *ngIf="isLoading"></mat-spinner>
+    <br>
+    <div class="example-header">
+        <span>
+        <mat-form-field appearance="outline">
+            <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
+        </mat-form-field>
+        </span>
+        <span class='right'>
+            <button class='button' mat-button color="primary" (click)="AddCustomer()" style="float:right">Add Customer</button>
+         </span>
+    </div>
+
+    <br>
+    <mat-table #table [dataSource]="dataSource">
+
+        <!-- id Column -->
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef> CustomerId </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+        </ng-container>
+
+        <!-- firstname Column -->
+        <ng-container matColumnDef="firstname">
+            <mat-header-cell *matHeaderCellDef> Firstname </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.firstname}} </mat-cell>
+        </ng-container>
+
+        <!-- lastname Column -->
+        <ng-container matColumnDef="lastname">
+            <mat-header-cell *matHeaderCellDef> Lastname </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.lastname}} </mat-cell>
+        </ng-container>
+
+        <!-- email Column -->
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+            <mat-cell *matCellDef="let element"> 
+                <a href="javascript:void(0);" target="_self">{{element.email}}</a> 
+            </mat-cell>
+        </ng-container>
+
+        <!-- phone_Number Column -->
+        <ng-container matColumnDef="phone_Number">
+            <mat-header-cell *matHeaderCellDef> Phone_Number </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.phone_Number}} </mat-cell>
+        </ng-container>
+
+        <!-- country_code Column -->
+        <ng-container matColumnDef="country_code">
+            <mat-header-cell *matHeaderCellDef> Country_code </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.country_code}} </mat-cell>
+        </ng-container>
+
+        <!-- gender Column -->
+        <ng-container matColumnDef="gender">
+            <mat-header-cell *matHeaderCellDef> Gender </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.gender=='m'?'Male':'Female'}} </mat-cell>
+        </ng-container>
+
+        <!-- balance Column -->
+        <ng-container matColumnDef="balance">
+            <mat-header-cell *matHeaderCellDef> Balance </mat-header-cell>
+            <mat-cell *matCellDef="let element"> ${{element.balance}} </mat-cell>
+        </ng-container>
+
+        <!-- edit Column -->
+        <ng-container matColumnDef="edit/delete">
+            <mat-header-cell *matHeaderCellDef> Edit/Delete </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <mat-icon aria-hidden="false" style="color: blue;" fontIcon="edit" (click)="EditCustomer(element)"></mat-icon>
+                &nbsp;&nbsp;
+                <mat-icon aria-hidden="false" style="color: red;" fontIcon="delete" (click)="DeleteCustomer(element)"></mat-icon>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</div>

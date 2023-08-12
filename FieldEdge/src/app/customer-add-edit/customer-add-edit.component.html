@@ -1,0 +1,62 @@
+<mat-label class="heading">Add/Edit Customer</mat-label>
+<br><br>
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+    <table>
+        <tr>
+            <td>
+                <mat-form-field appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input matInput placeholder="First Name" type="text" formControlName="firstname">
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput placeholder="Last Name" type="text" formControlName="lastname">
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email" type="text" formControlName="email">
+                </mat-form-field>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-form-field appearance="outline">
+                    <mat-label>Country Code</mat-label>
+                    <input matInput placeholder="country_code" type="text" formControlName="country_code">
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field appearance="outline">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput placeholder="phone_Number" type="text" formControlName="phone_Number">
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field appearance="outline">
+                    <mat-label>Gender</mat-label>
+                    <input matInput placeholder="gender" type="text" formControlName="gender">
+                </mat-form-field>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-form-field appearance="outline">
+                    <mat-label>Balance</mat-label>
+                    <input matInput placeholder="balance" type="number" formControlName="balance">
+                </mat-form-field>
+            </td>
+
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>
+                <button type="submit" class='button' mat-button color="primary" style="float:right">Submit</button>
+            </td>
+        </tr>
+    </table>
+</form>
